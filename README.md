@@ -38,7 +38,7 @@ Esta sección está dedicada a explorar nuevas funcionalidades en Angular, puntu
 ### \* RECURSOS A USAR:
 
 - Tailwind CSS: https://tailwindcss.com/ - https://tailwindcss.com/docs/guides/angular
-- ejemplo
+- Tailwind Components: https://tailwindcomponents.com/
 - ejemplo
 
 ### \* NOTAS:
