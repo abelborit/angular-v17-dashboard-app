@@ -1,3 +1,54 @@
+# Angular & TypeScript - Angular V17 Dashboard App
+
+---
+
+# Temas puntuales de la sección
+
+### ¿Qué veremos en esta sección?
+
+Esta sección está dedicada a explorar nuevas funcionalidades en Angular, puntualmente veremos:
+
+- Señales
+  - Observables a señales
+  - Señales para estados en servicios
+  - Señales de solo lectura (asReadOnly)
+  - Señales computadas
+- Defer
+  - Funcionalidad
+  - Triggers
+- Control Flow
+  - @if
+  - @for
+  - @else
+  - @empty
+  - @switch
+  - @case
+  - @default
+- View Transition API (Aún no es compatible con todos los navegadores)
+- Nuevo sistema de detección de cambios
+- Tailwind con Angular
+- Configuración de Path alias en TypeScript
+
+### \* PASOS A REALIZAR:
+
+1. ejemplo
+2. ejemplo
+3. ejemplo
+
+### \* RECURSOS A USAR:
+
+- ejemplo
+- ejemplo
+- ejemplo
+
+### \* NOTAS:
+
+- ejemplo
+- ejemplo
+- ejemplo
+
+---
+
 # AngularV17DashboardApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
