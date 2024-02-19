@@ -37,13 +37,13 @@ Esta sección está dedicada a explorar nuevas funcionalidades en Angular, puntu
 
 ### \* RECURSOS A USAR:
 
-- ejemplo
+- Tailwind CSS: https://tailwindcss.com/ - https://tailwindcss.com/docs/guides/angular
 - ejemplo
 - ejemplo
 
 ### \* NOTAS:
 
-- ejemplo
+- Al crear el proyecto con la versión 17 de Angular, iremos a src/app y veremos que la estructura de carpetas ha variado, por ejemplo, ya no está el app.module.ts, es decir, no está el módulo principal pero si vamos al app.config.ts veremos que es un archivo que tiene la configuración global de nuestra aplicación de Angular que nos va a permitir hacer inyección de módulos u otros proveedores para poder tener el mismo comportamiento que tuvimos con Angular v15, v16, etc. Entonces, por ejemplo, si queremos usar HttpClient entonces tenemos que usar el HttpClientModulo y como es algo que se usará de forma global en la aplicación, entonces necesitamos importar el módulo en nuestro app.config.ts y darse cuenta que si vamos al main.ts estamos haciendo uso de este app.config.ts al hacer el bootstrap de nuestra aplicación. Otro cambio también es que el app.component.ts es el mismo que antes pero ahora tiene una nueva opción con el `standalone: true,` y al crear un nuevo componente en esta v17 de Angular todo será standalone por defecto. Otro cambio es que genera por defecto el app.routes.ts para manejar las rutas y esas rutas también están definidas en app.config.ts en `provideRouter(routes)`
 - ejemplo
 - ejemplo
 
