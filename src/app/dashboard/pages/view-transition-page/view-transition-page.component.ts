@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './view-transition-page.component.html',
-  styleUrl: './view-transition-page.component.css'
+  styleUrl: './view-transition-page.component.css',
 })
-export class ViewTransitionPageComponent {
-
-}
+export default class ViewTransitionPageComponent {}

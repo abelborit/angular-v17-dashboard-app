@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './control-flow-page.component.html',
-  styleUrl: './control-flow-page.component.css'
+  styleUrl: './control-flow-page.component.css',
 })
-export class ControlFlowPageComponent {
-
-}
+export default class ControlFlowPageComponent {}

@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './change-detection-page.component.html',
-  styleUrl: './change-detection-page.component.css'
+  styleUrl: './change-detection-page.component.css',
 })
-export class ChangeDetectionPageComponent {
-
-}
+export default class ChangeDetectionPageComponent {}

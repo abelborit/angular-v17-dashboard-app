@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './user-page.component.html',
-  styleUrl: './user-page.component.css'
+  styleUrl: './user-page.component.css',
 })
-export class UserPageComponent {
-
-}
+export default class UserPageComponent {}
