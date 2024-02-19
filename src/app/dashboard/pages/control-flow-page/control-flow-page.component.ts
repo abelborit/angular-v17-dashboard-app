@@ -9,8 +9,13 @@ import { Component, signal } from '@angular/core';
 })
 export default class ControlFlowPageComponent {
   public showContent = signal<boolean>(false);
+  public grade = signal<'A' | 'C' | 'F'>('A');
 
   public toggleShowContent() {
     this.showContent.update((currentValue) => !currentValue);
+  }
+
+  public changeGrade(newGrade: 'A' | 'C' | 'F') {
+    this.grade.update(() => newGrade);
   }
 }

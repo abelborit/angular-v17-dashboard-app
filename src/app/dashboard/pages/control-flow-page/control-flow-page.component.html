@@ -15,4 +15,39 @@
     <p>Valor FALSE ❌</p>
     }
   </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">switch: {{ grade() }}</h2>
+
+    @switch (grade()) { @case ("A") {
+    <p>Arriba de 90 ✅</p>
+    } @case ("C") {
+    <p>Arriba de 70 🔶</p>
+    } @default {
+    <p>Abajo de 50 ❌</p>
+    } }
+
+    <div class="flex gap-4">
+      <button
+        class="p-2 bg-green-700 rounded text-white"
+        (click)="changeGrade('A')"
+      >
+        Change A
+      </button>
+
+      <button
+        class="p-2 bg-yellow-500 rounded text-white"
+        (click)="changeGrade('C')"
+      >
+        Change C
+      </button>
+
+      <button
+        class="p-2 bg-red-700 rounded text-white"
+        (click)="changeGrade('F')"
+      >
+        Change F
+      </button>
+    </div>
+  </div>
 </section>
