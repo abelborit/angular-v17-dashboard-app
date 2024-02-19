@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SideMenuComponent } from '../shared/side-menu/side-menu.component';
+
+/* FORMA 1: sin alias en TypeScript */
+// import { SideMenuComponent } from '../shared/side-menu/side-menu.component';
+/* FORMA 2: con alias en TypeScript */
+import { SideMenuComponent } from '@shared/side-menu/side-menu.component';
 
 @Component({
   standalone: true,

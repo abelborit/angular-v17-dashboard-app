@@ -2,6 +2,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    /* para crear los alias en TypeScript */
+    "paths": {
+      /* este alias y todo lo que venga depues apuntarán al src/app/shared (recordar que el src es relativo al tsconfig.json porque están en el mismo nivel) */
+      "@shared/*": ["./src/app/shared/*"]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -19,10 +24,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
