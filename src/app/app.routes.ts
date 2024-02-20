@@ -57,11 +57,19 @@ export const routes: Routes = [
           import('./dashboard/pages/users-page/users-page.component'),
       },
       {
-        path: 'view-transition',
-        title: 'View Transition',
+        path: 'view-transition-1',
+        title: 'View Transition 1',
         loadComponent: () =>
           import(
-            './dashboard/pages/view-transition-page/view-transition-page.component'
+            './dashboard/pages/view-transition-page/view-transition-page1.component'
+          ),
+      },
+      {
+        path: 'view-transition-2',
+        title: 'View Transition 2',
+        loadComponent: () =>
+          import(
+            './dashboard/pages/view-transition-page/view-transition-page2.component'
           ),
       },
       {
