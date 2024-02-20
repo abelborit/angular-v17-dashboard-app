@@ -1,1 +1,16 @@
-<p>user-page works!</p>
+<app-title [title]="titleLabel()" />
+
+@if(user()){
+<section>
+  <!-- aquí se coloca ? automáticamente al completar con el intellisense pero también podríamos colocar el ! porque ya se está haciendo la validación si hay o no un usuario en el @if -->
+  <img [srcset]="user()?.avatar" [alt]="user()?.first_name" />
+
+  <div>
+    <h3><b>Nombre:</b> {{ user()?.first_name }} {{ user()?.last_name }}</h3>
+    <p><b>Email:</b> {{ user()?.email }}</p>
+  </div>
+</section>
+
+} @else {
+<p>Cargando información del usuario...</p>
+}

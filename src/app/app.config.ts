@@ -1,7 +1,8 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter, withViewTransitions } from '@angular/router';
 
 import { routes } from './app.routes';
+import { HttpClientModule } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +18,8 @@ export const appConfig: ApplicationConfig = {
         },
       })
     ),
+    /* aquí colocaremos todos los providers que usualmente importaríamos de la manera tradicional en los módulos */
+    importProvidersFrom(HttpClientModule),
   ],
 };
 

@@ -5,7 +5,8 @@
     /* para crear los alias en TypeScript */
     "paths": {
       /* este alias y todo lo que venga depues apuntarán al src/app/shared (recordar que el src es relativo al tsconfig.json porque están en el mismo nivel) */
-      "@shared/*": ["./src/app/shared/*"]
+      "@shared/*": ["./src/app/shared/*"],
+      "@interfaces/*": ["./src/app/interfaces/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
