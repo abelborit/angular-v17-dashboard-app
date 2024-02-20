@@ -1,1 +1,114 @@
-<p>defer-options-page works!</p>
+<app-title title="Defer Triggers Options" />
+
+<hr class="my-4 border-cyan-600" />
+<h1 class="text-xl mb-5">Interacciones</h1>
+
+<!-- hay que tener en cuenta que el @defer puede hacer peticiones en cascada, es decir, que un componente tenga un @defer pero ese componente tiene otro componente en su interior que también tiene un @defer y así sucesivamente -->
+<section class="my-4 p-4 bg-gray-300">
+  @defer (on interaction) {
+  <app-heavy-loaders-fast cssClass="bg-blue-500 h-20 p-3">
+    <span>On Interaction</span>
+  </app-heavy-loaders-fast>
+  } @placeholder {
+  <div class="w-full h-20 bg-red-400 p-3">Click in this box!</div>
+  }
+</section>
+
+<section class="my-4 p-4 bg-gray-300">
+  <button
+    [disabled]="isDisabledBtn()"
+    (click)="disabledBtn()"
+    #btnClickInteraction
+    class="p-2 bg-green-500 hover:bg-green-600 transition-all rounded my-2"
+    [ngClass]="{
+      'bg-gray-500 hover:bg-gray-500 cursor-not-allowed': isDisabledBtn(),
+    }"
+  >
+    Click me!
+  </button>
+
+  @defer (on interaction(btnClickInteraction)) {
+  <app-heavy-loaders-fast cssClass="bg-blue-500 h-20 p-3">
+    <span>On Interaction</span>
+  </app-heavy-loaders-fast>
+  } @placeholder {
+  <div class="w-full h-20 bg-red-400 p-3">Click in the button!</div>
+  }
+</section>
+
+<section class="my-4 p-4 bg-gray-300">
+  <button
+    [disabled]="isDisabledBtn()"
+    (click)="disabledBtn()"
+    #btnHoverInteraction
+    class="p-2 bg-yellow-500 hover:bg-yellow-600 transition-all rounded my-2"
+  >
+    Hover me!
+  </button>
+
+  @defer (on hover(btnHoverInteraction)) {
+  <app-heavy-loaders-fast cssClass="bg-blue-500 h-20 p-3">
+    <span>On Hover</span>
+  </app-heavy-loaders-fast>
+  } @placeholder {
+  <div class="w-full h-20 bg-red-400 p-3">Hover in the button!</div>
+  }
+</section>
+
+<section class="my-4 p-4 bg-gray-300">
+  @defer (on hover) {
+  <app-heavy-loaders-fast cssClass="bg-blue-500 h-20 p-3">
+    <span>On Hover</span>
+  </app-heavy-loaders-fast>
+  } @placeholder {
+  <div class="w-full h-20 bg-red-400 p-3">Hover me!</div>
+  }
+</section>
+
+<section class="my-4 p-4 bg-gray-300">
+  @defer (on immediate) {
+  <app-heavy-loaders-fast cssClass="bg-blue-500 h-20 p-3">
+    <span>On Immediate</span>
+  </app-heavy-loaders-fast>
+  } @placeholder {
+  <div class="w-full h-20 bg-red-400 p-3">On Immediate</div>
+  }
+</section>
+
+<section class="my-4 p-4 bg-gray-300">
+  @defer (on timer(2000)) {
+  <app-heavy-loaders-fast cssClass="bg-blue-500 h-20 p-3">
+    <span>On Timer (2000 ms)</span>
+  </app-heavy-loaders-fast>
+  } @placeholder {
+  <div class="w-full h-20 bg-red-400 p-3">On Timer (2000 ms)</div>
+  }
+</section>
+
+<!-- también se pueden colocar múltiples condiciones y cuando una se cumpla entonces ahí es donde empieza a realizar la carga diferida. El prefetch significa "que lo empiece a pre-cargar cuando ....." es decir, que cargue o prepare el código JavaScript que lo crea pero aún no lo ejecutará hasta que nosotros hagamos algo, como en este caso que es el hover. Este prefetch sería útil cuando el componente es muy pesado y tiene que descargar mucho código o es un componente que tenga otro componente y así sucesivamente -->
+<section class="my-4 p-4 bg-gray-300">
+  @defer (on hover; prefetch on idle) {
+  <app-heavy-loaders-fast cssClass="bg-blue-500 h-20 p-3">
+    <span>On Hover - On idle</span>
+  </app-heavy-loaders-fast>
+  } @placeholder {
+  <div class="w-full h-20 bg-red-400 p-3">On Hover - On idle</div>
+  }
+</section>
+
+<!-- ************************************************************************************************************************ -->
+<!-- Triggers con opciones para "on" -->
+<!--
+- on idle -> Se dispara cuando el navegador llega a un estado inactivo “idle” (cuando ya se construyeron los componentes, rutas, etc)
+- on viewport -> Se dispara cuando el bloque entra al punto de vista del usuario. Por defecto se puede conectar el placeholder y otro elemento
+- on interaction -> Se dispara cuando el usuario interactúa con un elemento específico mediante un click o keydown
+- on hover -> Se dispara cuando el mouse pasa sobre el elemento o la referencia.
+- on immediate -> Se dispara tan pronto el cliente termina de renderizar la pantalla.
+- on timer -> Se dispara después de cierta duración de tiempo en MS milliseconds.
+-->
+
+<!-- ************************************************************************************************************************ -->
+<!-- ¿Cuál sería la principal diferencia entre el uso del Defer Trigger Interaction y el *ngIf ? -->
+<!--
+La principal diferencia entre el uso de Defer Triggers y el *ngIf es que el *ngIf no hace lazyload, es decir, no carga los componentes de manera perezosa, mientras que los Defer Triggers sí lo hace, esto significa que con Defer Triggers puedes cargar componentes solo cuando realmente los necesitas, lo que puede mejorar bastante el rendimiento de una aplicación y además, una vista diferible no puede revertirse, es decir, no te permite alternar un componente dependiendo de valores booleanos como lo hace el bloque if, si queremos ese comportamiento tendríamos que envolver el @defer con un @if.
+-->
