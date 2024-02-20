@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
+import { TitleComponent } from '@shared/title/title.component';
 
 @Component({
   selector: 'app-control-flow-page',
   standalone: true,
-  imports: [],
+  imports: [TitleComponent],
   templateUrl: './control-flow-page.component.html',
   styleUrl: './control-flow-page.component.css',
 })
