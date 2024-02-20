@@ -1,8 +1,10 @@
+<app-title title="Defer Views = Defer Blocks = Defer Function" withShadow />
+
 <section class="grid grid-cols-1">
   <!-- al colocar @defer y tener un código bloqueante o un código muy pesado dentro veremos que la aplicación al menos pudo entrar aunque aún no se pueda interactuar ya sea porque bloquea la interacción o porque es un código pesado que aún no cargó esa parte de la pantalla pero al menos ya no se quedó en blanco -->
   <!-- si colocamos varios @defer entonces se ejecutarán en orden, es decir, según la posición en la que estén pero como nuestro código es bloqueante en este caso entonces va a llegar un punto en el que primero se ejecutará el que está en la segunda posición o de repente primera posción, y así con cada uno, es decir, que se ejecutarán en cualquier orden -->
   <!-- hay que tener en consideración que, por ejemplo, si tenemos una porción de código en la UI que el usuario nunca llegó a ver entonces no debería de cargar hasta que el usuario lo necesite, y por eso hay opciones para lanzar unos triggers para poder controlar mejor el @defer -->
-  @defer () {
+  @defer (on viewport) {
   <app-heavy-loaders-slow cssClass="bg-blue-500" />
   } @placeholder {
   <!-- mientras que lo anterior que es código bloqueante o código muy pesado se está cargando y contruyéndose podemos colocar un placeholder -->
@@ -14,7 +16,7 @@
   }
 
   <!--  -->
-  @defer () {
+  @defer (on viewport) {
   <app-heavy-loaders-slow cssClass="bg-green-500" />
   } @placeholder {
   <p
@@ -25,7 +27,7 @@
   }
 
   <!--  -->
-  @defer () {
+  @defer (on viewport) {
   <app-heavy-loaders-slow cssClass="bg-purple-500" />
   } @placeholder {
   <p
@@ -35,3 +37,14 @@
   </p>
   }
 </section>
+
+<!-- ************************************************************************************************************************ -->
+<!-- Triggers con opciones para "on" -->
+<!--
+- on idle -> Se dispara cuando el navegador llega a un estado inactivo “idle” (cuando ya se construyeron los componentes, rutas, etc)
+- on viewport -> Se dispara cuando el bloque entra al punto de vista del usuario. Por defecto se puede conectar el placeholder y otro elemento
+- on interaction -> Se dispara cuando el usuario interactúa con un elemento específico mediante un click o keydown
+- on hover -> Se dispara cuando el mouse pasa sobre el elemento o la referencia.
+- on immediate -> Se dispara tan pronto el cliente termina de renderizar la pantalla.
+- on timer -> Se dispara después de cierta duración de tiempo en MS milliseconds.
+ -->
